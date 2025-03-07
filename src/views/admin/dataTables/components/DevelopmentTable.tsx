@@ -1,4 +1,4 @@
-import { Box, Flex, Progress, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, Icon, Progress, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from '@chakra-ui/react';
 import {
 	createColumnHelper,
 	flexRender,
@@ -13,6 +13,7 @@ import Menu from 'components/menu/MainMenu';
 import { AndroidLogo, AppleLogo, WindowsLogo } from 'components/icons/Icons';
 import * as React from 'react';
 // Assets
+import { MdEdit } from 'react-icons/md';
 
 type RowObj = {
 	name: string;
@@ -113,7 +114,7 @@ export default function ComplexTable(props: { tableData: any }) {
 				</Flex>
 			)
 		}),
-		// Empty Actions column
+		// Actions column with Edit button
 		columnHelper.accessor('name', {
 			id: 'actions',
 			header: () => (
@@ -126,8 +127,16 @@ export default function ComplexTable(props: { tableData: any }) {
 				</Text>
 			),
 			cell: () => (
-				<Flex align='center'>
-					{/* Actions will be added later */}
+				<Flex align='center' justifyContent='center'>
+					<Button
+						p='0px'
+						bg='transparent'
+						variant='no-effects'
+						leftIcon={<Icon as={MdEdit} h='16px' w='16px' color='teal.500' />}
+						size="sm"
+					>
+						Edit
+					</Button>
 				</Flex>
 			)
 		})
