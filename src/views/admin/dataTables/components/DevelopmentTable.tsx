@@ -112,6 +112,24 @@ export default function ComplexTable(props: { tableData: any }) {
 					<Progress variant='table' colorScheme='brandScheme' h='8px' w='63px' value={info.getValue()} />
 				</Flex>
 			)
+		}),
+		// Empty Actions column
+		columnHelper.accessor('name', {
+			id: 'actions',
+			header: () => (
+				<Text
+					justifyContent='space-between'
+					align='center'
+					fontSize={{ sm: '10px', lg: '12px' }}
+					color='gray.400'>
+					ACTIONS
+				</Text>
+			),
+			cell: () => (
+				<Flex align='center'>
+					{/* Actions will be added later */}
+				</Flex>
+			)
 		})
 	];
 	const [ data, setData ] = React.useState(() => [ ...defaultData ]);
